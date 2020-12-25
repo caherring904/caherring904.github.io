@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html>
-<body>
+	<head>
+		<title>Calculate Cost</title>
+		<meta name="description" content="Calculate cost.">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	</head>
+	<body id='body'>
+		<h1>Calculate Cost</h1>
+		<p>We gonna calculate the cost 
+		<br/>duh.</p>
+		<input type="input" id="input_text" value="">
+		<button onclick="receiveSubmission()">Submit</button>
+		<p id="response"></p>
 
-<h1>The button Element</h1>
+		<script>
+						
+			function receiveSubmission() {
 
-<button type="button" onclick="alert('Hello world!!!')">Click Me!</button>
- <script> document.getElementById("body").style.backgroundColor = "#BBBBFF" </script>
- 
-</body>
+				x = document.getElementById("input_text").value
+				result = 0
+				
+				if (x <= 0) {
+					document.getElementById("response").textContent = "Put in a positive integer"
+					return
+				}
+				
+				if (x <= 5)
+					result = 90 * x
+				else if (x <= 10)
+					result = 85 * (x - 5) + 450
+				else if (x <= 15)
+					result = 80 * (x - 10) + 875
+				else
+					result = 75 * (x - 15) + 1275
+				
+				document.getElementById("response").textContent = result
+				
+			}
+			
+		</script>
+	</body>
 </html>
