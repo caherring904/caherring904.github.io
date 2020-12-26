@@ -17,39 +17,25 @@
 	<body id='body'>
 		<h1>Cost Calculator</h1>
 		<p>Calculates the total cost based on the following <b>marginal rates</b>
-		<br/> 
+		<br> 
 		<table>
-			<tr>
-				<th>Rate</th>
-				<th>Units</th>
-			</tr>
-			<tr>
-				<td>$90</td>
-				<td>1-5</td>
-			</tr>
-			<tr>
-				<td>$85</td>
-				<td>6-10</td>
-			</tr>
-			<tr>
-				<td>$80</td>
-				<td>11-15</td>
-			</tr>
-			<tr>
-				<td>$75</td>
-				<td>16+</td>
-			</tr>
+			<tr><th>Rate</th><th>Units</th></tr>
+			<tr><td>$90</td><td>1-5</td></tr>
+			<tr><td>$85</td><td>6-10</td></tr>
+			<tr><td>$80</td><td>11-15</td></tr>
+			<tr><td>$75</td><td>16+</td></tr>
 		</table>
+		<br>
+		<input type="text" id="input" value="" onkeyup="textEnter(event)">
+		<input type="button" value="Submit" onclick="receiveSubmission()">
 		</p>
-		<input type="input" id="input_text" value="">
-		<button onclick="receiveSubmission()">Submit</button>
 		<p id="response"></p>
 
 		<script>
 						
 			function receiveSubmission() {
 
-				x = document.getElementById("input_text").value
+				x = document.getElementById("input").value
 				result = 0
 				
 				if (x <= 0) {
@@ -68,6 +54,11 @@
 				
 				document.getElementById("response").textContent = result
 				
+			}
+			
+			function textEnter(event) {
+				if (event.keyCode == 13)
+					receiveSubmission()
 			}
 			
 		</script>
